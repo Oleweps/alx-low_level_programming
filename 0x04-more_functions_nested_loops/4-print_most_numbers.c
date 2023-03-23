@@ -1,18 +1,17 @@
-#include "main.h"
+include "holberton.h"
 
 /**
-  *print_most_numbers - prints numbers from 0 to 9 except 2 and 4
-  *Description - Do not print 2 and 4
-  *Description - You can only use _putchar twice in your code
+  * print_most_numbers - Print the numbers since 0 up to 9
   *
-  * Return: numbers from 0 to 9
+  * Description: Prints the numbers excluding 2 and 4
+  *
+  * Return: The numbers since 0 up to 9
   */
-
 void print_most_numbers(void)
 {
 	int x = 0;
 
-	for (x <= 9; x++)
+	for (; x <= 9; x++)
 	{
 		if (x == 2 || x == 4)
 		{
@@ -23,5 +22,7 @@ void print_most_numbers(void)
 			_putchar(x + '0');
 		}
 	}
+
 	_putchar('\n');
-}		
+}
+		
