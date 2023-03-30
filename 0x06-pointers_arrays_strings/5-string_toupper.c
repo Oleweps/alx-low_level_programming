@@ -8,6 +8,9 @@
 
 char *string_toupper(char *str)
 {
+	if (str == NULL)
+		return (NULL);
+
 	int i;
 
 	for (i = 0; str[i] != '\0'; i++)
