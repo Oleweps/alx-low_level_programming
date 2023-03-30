@@ -8,8 +8,6 @@
 
 char *leet(char *str)
 {
-	if (str == null)
-		return (null)
 	int i;
 	int j;
 
