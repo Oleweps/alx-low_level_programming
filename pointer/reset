@@ -9,6 +9,7 @@
 #    int main(void)
 #    {
 #        int n;
+#        int j;
 #
 #            n = 402;
 #                printf("n=%d\n", n);
