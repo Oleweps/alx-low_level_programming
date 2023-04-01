@@ -1,11 +1,11 @@
 #include "main.h"
-
+#include <ctype.h>
 /**
  * infinite_add - this function adds two numbers
  * @n1: first number
  * @n2: second number
  * @r: the buffer that the function will use to store the result
- * size_r: buffer size
+ * @size_r: buffer size
  * Return: pointer to the result
  */
 
@@ -17,19 +17,27 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	{
 		return (0);
 	}
-	while (len1 > 0 || len2 > 0 || carry > 0)
-		int digit1 = len1 > 0 ? n1[--len1] - '0' : 0;
-	int digit2 = len2 > 0 ? n2[--len2] - '0' : 0;
+	strrev(ni);
+	strrev(n2);
 
-	sum = digit1 + digit2 + carry;
-	carry = sum / 10;
-	r[--size_r] = sum % 10 + '0';
-	r += size_r;
-	while (*r == '0' && *(r + 1) != '\0')
+	int carry = 0, sum, i;
+
+	for (i = 0; i < len1 || i < len2 || carry != 0; i++)
 	{
-		r++;
+		sum = carry;
+		if (i < len1)
+		{
+			sum += ni[i] - '0';
+		}
+		if (i < len2)
+		{
+			sum += n2[i] - '0';
+		}
+		r[i] = sum % 10 + '0';
+		carry = sum / 10;
 	}
-	*++r = '\0';
-	return (r - size_r);
-}
+	r[i] = '\0';
+	strrev(r);
 
+	return (r);
+}
