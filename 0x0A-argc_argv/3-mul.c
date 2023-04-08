@@ -57,9 +57,9 @@ int main(int argc, char *argv[])
 		printf("error\n");
 		return (1);
 	}
-	num1 = _atoi(argv[1]);
-	num2 = _atoi(argv[2]);
-	result = num1 * num2;
+	numb1 = _atoi(argv[1]);
+	numb2 = _atoi(argv[2]);
+	result = numb1 * numb2;
 	printf("%d\n", result);
 	return (0);
 }
