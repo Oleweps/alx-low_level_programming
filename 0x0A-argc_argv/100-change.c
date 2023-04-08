@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
   *main - prints minimum number of coins to make change
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
 		printf("error\n");
 		return (1);
 	}
-	num = _atoi(argv[1]);
+	num = atoi(argv[1]);
 	result = 0;
 	if (num < 0)
 	{
