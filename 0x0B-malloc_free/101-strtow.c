@@ -3,7 +3,6 @@
 
 int word_len(char *str);
 int count_words(char *str);
-char **strtow(char *str);
 
 /**
  * word_len - last index in the string locator
