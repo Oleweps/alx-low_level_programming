@@ -1,7 +1,7 @@
 import ctypes
 
 # Load the dynamic library
-dynamics_lib = ctypes.CDLL('./libdynamics.so')
+dynamics_lib = ctypes.CDLL('./lidynamics.so')
 
 # Call the C functions from the dynamic library
 print("Calling C functions from the dynamic library:")
