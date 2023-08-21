@@ -1,0 +1,10 @@
+import ctypes
+
+# Load the dynamic library
+dynamics_lib = ctypes.CDLL('./libdynamics.so')
+
+# Call the C functions from the dynamic library
+print("Calling C functions from the dynamic library:")
+print(f"Is 'A' uppercase? {dynamics_lib.is_upper(ord('A'))}")
+print(f"Concatenated string: {ctypes.string_at(dynamics_lib.str_concat(b"Hello, ", b"world!"))}")
+print(f"Adding numbers: {dynamics_lib.add(5, 7)}")
