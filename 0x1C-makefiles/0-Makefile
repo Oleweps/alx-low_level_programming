@@ -1,4 +1,4 @@
-# Using gcc compiler
+# Using a gcc compiler
 
 all: prog
 
