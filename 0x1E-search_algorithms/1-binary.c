@@ -1,56 +1,98 @@
-#include "search_algos.h"
+#include <stdio.h>
 
-void print_array(int *array, size_t i, size_t size);
+int _abs(float val);
+int _floor(float val);
+void print_array(int *array, int start, int end);
 
 /**
- * binary_search - binary search algorithm in a string
- * @array: list of elements
- * @size: size of the list
- * @value: target to search
- * Return: element index on success (-1) on fail
+ * binary_search - implementation if a binary search algorithm.
+ *
+ * @array: pointer to an array of integers
+ * @size: size of array
+ * @value: value to serach for in array
+ *
+ * Return: index of value if found else return -1
  */
+
 int binary_search(int *array, size_t size, int value)
 {
-	size_t low = 0, high = size - 1, half = 0;
+	size_t left, right, mid;
 
-	if (array == NULL || value == 0)
+	if (array == NULL)
 		return (-1);
 
-	print_array(array, low, size);
-	while (low < high)
+	left = 0;
+	right = size - 1;
+
+	while (left <= right)
 	{
-		half = (low + high) / 2;
-		if (array[half] < value)
+		mid = (_floor(right + left) / 2);
+
+		print_array(array, left, right);
+		if (array[mid] < value)
 		{
-			low = half + 1;
-			print_array(array, low, high + 1);
+			left = mid + 1;
 		}
-		else if (array[half] > value)
+		else if (array[mid] > value)
 		{
-			high = half - 1;
-			print_array(array, low, high + 1);
+			right = mid - 1;
 		}
 		else
-			return (array[half]);
+			return (mid);
 	}
+
 	return (-1);
 }
 
 /**
- * print_array - print all elements in an array
- * @array: list of elements
- * @i: index to init
- * @size: size of the array
+ * _abs - get absolute value of a number
+ *
+ * @val: floating value to convert.
+ *
+ * Return: a non negative number
  */
-void print_array(int *array, size_t i, size_t size)
+
+int _abs(float val)
 {
-	printf("Searching in array: ");
-	while (i < size)
+	if (val > 0)
+		return (val);
+	else
+		return (val - 1);
+}
+
+/**
+ * _floor - floar value of a number
+ *
+ * @val: floating value to convert.
+ *
+ * Return: an integer from a float
+ */
+
+int _floor(float val)
+{
+	return ((int)(_abs(val)));
+}
+
+/**
+ * print_array - print all values in an array
+ *
+ * @array: an array of integers
+ * @start: starting point of array
+ * @end: ending point of array
+ */
+
+void print_array(int *array, int start, int end)
+{
+	int x;
+
+	printf("Searching in array:");
+	for (x = start; x <= end; x++)
 	{
-		if (i + 1 == size)
-			printf("%d ", array[i]);
+		if (x != end)
+			printf(" %d,", array[x]);
 		else
-			printf("%d, ", array[i]);
-		i++;
-	} printf("\n");
+			printf(" %d", array[x]);
+	}
+
+	printf("\n");
 }
